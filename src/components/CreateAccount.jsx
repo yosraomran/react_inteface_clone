@@ -42,7 +42,7 @@ const CreateAccount = () => {
     };
 
     const validatePassword = (password) => {
-      const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%+*#?&])[A-Za-z\d@$!%+*#?&]{8,}$/;
+      const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%+*#?&])[A-Za-z\d@$!%+*#?&]{6,}$/;
       return regex.test(password);
     };
 
@@ -71,7 +71,14 @@ const CreateAccount = () => {
                 )}
             </div>
             <div className="flex flex-col items-start gap-2 w-full">
-              <label className="font-semibold text-sm text-[#333333]">Password</label>
+              <label className="flex flex-row items-start p-0 gap-2 w-[432px] h-5">
+                <span className="font-semibold text-sm text-[#333333]">
+                    Password
+                </span>
+                <span className="w-[212px] h-[19px] font-sans italic font-normal text-[14px] leading-[19px] text-right text-gray-400 flex-none order-1 flex-grow">
+                    At least 6 characters
+                </span>
+              </label>
               <div className={`flex flex-row items-center p-2 w-full bg-white border ${isPasswordValid ? 'border-[#dddddd]' : 'border-[#D44848]'} rounded-lg`}>
                   <input
                       type={isPasswordVisible ? 'text' : 'password'}
